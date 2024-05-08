@@ -1,4 +1,4 @@
-var pjs = new PointJS(640, 480, {
+var pjs = new PointJS(350, 259, {
     backgroundColor: '#ffffff'
   });
   

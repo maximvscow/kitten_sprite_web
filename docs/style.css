@@ -8,4 +8,6 @@
   h1 { 
     font-family: 'Comicoro';
     color: #474646;
+    width: 350px;
+    text-align: center;
   }
