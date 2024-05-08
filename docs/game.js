@@ -9,7 +9,7 @@ var pjs = new PointJS(640, 480, {
   
   //анимационный персонаж в фазе idel
   var idel = game.newAnimationObject({
-    animation: tiles.newImage("resources/k000002.png").getAnimation(0, 0, 150, 159, 28),
+    animation: tiles.newImage("sprites/k000002.png").getAnimation(0, 0, 150, 159, 28),
     x: 100,
     y: 100,
     w: 150,
