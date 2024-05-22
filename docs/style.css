@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  width: 100%;
+}
+
 @font-face { 
     font-family: 'Comicoro'; 
     src: url('fonts/ComicoroRu_0.ttf')  format('truetype');
@@ -8,6 +13,24 @@
   h1 { 
     font-family: 'Comicoro';
     color: #474646;
-    width: 350px;
+    width: 100%;
     text-align: center;
+    margin: 10 0 0;
+  }
+
+  .buttons {
+    margin: 230px auto auto;
+    width: 192px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .button {
+    font-family: 'Comicoro';
+    color: #474646;
+    font-size: 28pt;
+    outline: none;
+    z-index: 100;
+    text-decoration: none;
   }

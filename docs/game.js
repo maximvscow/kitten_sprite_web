@@ -1,4 +1,7 @@
-var pjs = new PointJS(350, 259, {
+var windowInnerWidth = window.innerWidth
+var spriteMargin = (windowInnerWidth/2 - 96)
+
+var pjs = new PointJS(192, 242, {
     backgroundColor: '#ffffff'
   });
   
@@ -9,11 +12,11 @@ var pjs = new PointJS(350, 259, {
   
   //анимационный персонаж в фазе idel
   var idel = game.newAnimationObject({
-    animation: tiles.newImage("sprites/k000002.png").getAnimation(0, 0, 150, 159, 28),
-    x: 100,
-    y: 100,
-    w: 150,
-    h: 159,
+    animation: tiles.newImage("sprites/000001/lick.png").getAnimation(0, 0, 192, 192, 28),
+    x: spriteMargin,
+    y: 50,
+    w: 192,
+    h: 192,
     delay: 3,
   })
   
@@ -24,7 +27,14 @@ var pjs = new PointJS(350, 259, {
   
   
   game.newLoop('myGame', function () { 
+
     idel.draw(); // иначе рисовать idel
+
+    window.addEventListener('resize', function(event) {
+      windowInnerWidth = window.innerWidth
+      spriteMargin = (windowInnerWidth/2 - 96)
+      idel.x = spriteMargin
+    }, true);
 
   });
   
