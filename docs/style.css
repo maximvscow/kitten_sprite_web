@@ -15,12 +15,12 @@ body {
     color: #474646;
     width: 100%;
     text-align: center;
-    margin: 10 0 0;
+    margin: 28px 0 0;
   }
 
   .buttons {
-    margin: 230px auto auto;
-    width: 204px;
+    margin: 260px auto auto;
+    width: 254px;
   }
 
   .button {
@@ -32,7 +32,7 @@ body {
     text-decoration: none;
     position: relative;
     border-radius: 0px;
-    padding: 0 18px;
+    padding: 3px 30px;
     border: none;
   }
 

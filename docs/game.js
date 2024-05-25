@@ -14,7 +14,7 @@ var pjs = new PointJS(192, 242, {
   var idel = game.newAnimationObject({
     animation: tiles.newImage("sprites/000001/lick.png").getAnimation(0, 0, 192, 192, 28),
     x: spriteMargin,
-    y: 50,
+    y: 70,
     w: 192,
     h: 192,
     delay: 3,
