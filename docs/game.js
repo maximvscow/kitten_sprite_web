@@ -39,25 +39,26 @@ var pjs = new PointJS(192, 242, {
   })
 
   var clicked = false
+
+  window.addEventListener('resize', function(event) {
+    windowInnerWidth = window.innerWidth
+    spriteMargin = (windowInnerWidth/2 - 96)
+    idel.x = spriteMargin
+  }, true);
+
   document.getElementById('feedCat').addEventListener("click", function() {
     clicked = true });
   
-  // Если количество фаз, задержка, и размер кадров разных фаз персонажа совпадают, можно
-  // не создавать два анимационных объекта а менять в параметре animation ссылку на новое изображение
-  // На эту тему смотри пример "два способа смены анимацции в одном спрайте"
+  // Почему анимация еду отрисовывается только по шестому нажатию на кнопку 
   
   
   game.newLoop('myGame', function () { 
 
-    window.addEventListener('resize', function(event) {
-      windowInnerWidth = window.innerWidth
-      spriteMargin = (windowInnerWidth/2 - 96)
-      idel.x = spriteMargin
-    }, true);
-
     if (clicked == true) {
-      feed.draw(); 
-      clicked = false
+      feed.draw();
+      if (feed.getFrame() == feed.getLastFrame()){
+        clicked = false
+      }
     } else {
       idel.draw(); 
     }
