@@ -17,29 +17,3 @@ body {
     text-align: center;
     margin: 28px 0 0;
   }
-
-  .buttons {
-    margin: 260px auto auto;
-    width: 254px;
-  }
-
-  .button {
-    font-family: 'Comicoro';
-    color: #474646;
-    font-size: 23pt;
-    outline: none;
-    z-index: 100;
-    text-decoration: none;
-    position: relative;
-    border-radius: 0px;
-    padding: 3px 30px;
-    border: none;
-  }
-
-  .left {
-    float: left;
-  }
-
-  .right {
-    float: right;
-  }
