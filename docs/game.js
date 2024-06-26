@@ -11,6 +11,7 @@ var pjs = new PointJS(192, 242, {
   var tiles = pjs.tiles;
   var mouse = pjs.mouseControl;
   mouse.initControl();
+  var lick_flag = 0;
   
   
   var text_button_feed = game.newTextObject({
@@ -91,11 +92,63 @@ var pjs = new PointJS(192, 242, {
   
   game.newLoop('myGame', function () { 
 
+    idel.draw(); 
+    feed.setFrame(0);
+    lick.setFrame(0);
     rect_button_feed.draw();
     rect_button_drink.draw();
     text_button_feed.draw();
     text_button_drink.draw();
-    idel.draw(); 
+
+    lick_flag += 1;
+    
+    if (mouse.isInStatic(rect_button_feed.getStaticBox())) {
+      rect_button_feed.fillColor = '#f0b4b4';
+    } else {
+      rect_button_feed.fillColor = '#FFCCCC';
+    };
+
+    if (mouse.isInStatic(rect_button_drink.getStaticBox())) {
+      rect_button_drink.fillColor = '#f0b4b4';
+    } else {
+      rect_button_drink.fillColor = '#FFCCCC';
+    };
+
+    if (mouse.isPeekStatic("LEFT", rect_button_feed.getStaticBox())) {
+      game.setLoop('feed')
+    } else {
+      // idel.draw(); тут будет условие нажатия на другую кнопку и запуск другого цикла
+    };
+
+    if (lick_flag == 551) {
+      game.setLoop('licking');
+    };
+
+  });
+
+  game.newLoop('feed', function() {
+    lick_flag = 0;
+    idel.setFrame(0);
+    feed.drawFrames(0,29);
+    rect_button_feed.draw();
+    rect_button_drink.draw();
+    text_button_feed.draw();
+    text_button_drink.draw();
+    if (feed.getFrame() == feed.getLastFrame()) {
+      game.setLoop('myGame')
+    }
+  });
+
+  game.newLoop('licking', function () { 
+
+    lick_flag = 0;
+    lick.draw(); 
+    feed.setFrame(0);
+    idel.setFrame(0);
+    rect_button_feed.draw();
+    rect_button_drink.draw();
+    text_button_feed.draw();
+    text_button_drink.draw();
 
     if (mouse.isInStatic(rect_button_feed.getStaticBox())) {
       rect_button_feed.fillColor = '#f0b4b4';
@@ -109,7 +162,17 @@ var pjs = new PointJS(192, 242, {
       rect_button_drink.fillColor = '#FFCCCC';
     }
 
+    if (mouse.isPeekStatic("LEFT", rect_button_feed.getStaticBox())) {
+      game.setLoop('feed')
+    } else {
+      // idel.draw(); тут будет условие нажатия на другую кнопку и запуск другого цикла
+    }
+
+    if (lick.getFrame() == lick.getLastFrame()) {
+      game.setLoop('myGame')
+    }
+
   });
-  
+
   game.setLoop('myGame');
   game.start();
