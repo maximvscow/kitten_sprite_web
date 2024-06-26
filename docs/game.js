@@ -103,7 +103,7 @@ var pjs = new PointJS(192, 242, {
       rect_button_feed.fillColor = '#FFCCCC';
     }
 
-    if (mouse.isInStatic(rect_button_feed.getStaticBox())) {
+    if (mouse.isInStatic(rect_button_drink.getStaticBox())) {
       rect_button_drink.fillColor = '#f0b4b4';
     } else {
       rect_button_drink.fillColor = '#FFCCCC';
